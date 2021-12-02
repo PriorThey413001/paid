@@ -263,7 +263,7 @@ L_6_:NewButton(
 	"Aimlock",
 	"Camlock",
 	function() 
-	    		getgenv().AimPart = "HumanoidRootPart"
+	    	getgenv().AimPart = "HumanoidRootPart"
 		getgenv().AimlockKey = "q"
 		getgenv().AimRadius = 50
 		getgenv().ThirdPerson = true
@@ -1025,6 +1025,46 @@ L_12_:NewButton(
         end)
 
 L_12_:NewButton(
+	"TriggerBot",
+	"Shoots when locked on target",
+    function()
+    getgenv().settings = {
+   TeamCheck = false;
+   Delay = 0;
+   Keybind = Enum.KeyCode.Q;
+   Enabled = true;
+}
+
+local Holding = false
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:connect(function(key)
+   if key.KeyCode == getgenv().settings.Keybind and getgenv().settings.Enabled then
+       Holding = true
+       while Holding do wait()
+           if Mouse.Target and Players:FindFirstChild(Mouse.Target.Parent.Name) then
+               local HitPlayer = Players:FindFirstChild(Mouse.Target.Parent.Name)
+               if HitPlayer.Team ~= LocalPlayer.Team or not getgenv().settings.TeamCheck then
+                   if getgenv().settings.Delay > 0 then wait(getgenv().settings.Delay) end
+                   mouse1press(); wait(); mouse1release()
+               end
+           end
+           if not getgenv().settings.Enabled then break end
+       end
+   end
+end)
+
+UserInputService.InputEnded:connect(function(key)
+   if key.KeyCode == getgenv().settings.Keybind and getgenv().settings.Enabled then
+       Holding = false
+   end
+end)
+    end)
+
+L_12_:NewButton(
 	"Anti Slow",
 	"No Walk Slowdown",
     function()
@@ -1048,7 +1088,7 @@ L_12_:NewButton(
 
                 local garbage = {
                 "ur bad";
-                "lma() nice try bud";
+                "nice try bud";
                 "ez";
                 "my grandma has more skill than you";
                 "gun user";
@@ -1064,7 +1104,7 @@ L_12_:NewButton(
                 "I didn't think being this bad was possible";
                 "leave";
                 "no skill";
-                "you thought u ate lol";
+                "you thought";
                 "bad";
                 "you're nothing";
                 "lol";
@@ -1072,7 +1112,7 @@ L_12_:NewButton(
                 "dog water";
                 "ur salty";
                 "salty";
-                "look he's mad";
+                "ur mad son";
                 "cry more";
                 "keep crying";
                 "cry baby";
@@ -1085,10 +1125,12 @@ L_12_:NewButton(
                 "rodent";
                 "ur so bad ur my seed";
                 "/e dab";
-                "./e dab";
+                "/e dab";
                 "time to take out the trash";
                 "did you get worse?";
                 "I'm surprised you haven't quit yet";
+                "sonned";
+                 "lightwork";
             }
                 function TrashTalk(inputObject, gameProcessedEvent)
                  if inputObject.KeyCode == Enum.KeyCode.J and gameProcessedEvent == false then
@@ -1386,6 +1428,33 @@ L_12_:NewButton(
 local L_11_ = L_4_:NewTab("Misc Stuff")
 local L_12_ = L_11_:NewSection("Selection")
 
+L_12_:NewButton(
+	"Fullbright",
+	"Lighting",
+    function()
+  local Light = game:GetService("Lighting")
+
+            function dofullbright()
+            Light.Ambient = Color3.new(1, 1, 1)
+            Light.ColorShift_Bottom = Color3.new(1, 1, 1)
+            Light.ColorShift_Top = Color3.new(1, 1, 1)
+            end
+
+            dofullbright()
+
+            Light.LightingChanged:Connect(dofullbright)
+end)
+
+L_12_:NewButton(
+	"No Fog",
+	"Removes Fog",
+    function()
+while true do
+                wait()
+                game.Lighting.FogEnd = 1000000
+                wait()
+                end
+end)
 L_12_:NewButton(
 	"Serverhop",
 	"Joins different server",
