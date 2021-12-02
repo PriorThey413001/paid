@@ -1026,7 +1026,7 @@ L_12_:NewButton(
 
 L_12_:NewButton(
 	"TriggerBot",
-	"Shoots when locked on target",
+	"Shoots when locked on target Keybind = Q",
     function()
     getgenv().settings = {
    TeamCheck = false;
