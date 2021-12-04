@@ -1061,7 +1061,6 @@ UserInputService.InputEnded:connect(function(key)
        Holding = false
    end
 end)
-    end)
 
 L_12_:NewButton(
 	"Anti Slow",
