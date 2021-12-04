@@ -1036,7 +1036,7 @@ L_12_:NewButton(
 	"Trigger Bot",
 	"Shoots when locked on target ",
     function()
-  local player = game.Players.LocalPlayer
+ local player = game.Players.LocalPlayer
 			local mouse = player:GetMouse()
 			local Players = game:FindService("Players")
 
@@ -1056,11 +1056,6 @@ L_12_:NewButton(
 			end
 		end)
 
-UserInputService.InputEnded:connect(function(key)
-   if key.KeyCode == getgenv().settings.Keybind and getgenv().settings.Enabled then
-       Holding = false
-   end
-end)
 
 L_12_:NewButton(
 	"Anti Slow",
