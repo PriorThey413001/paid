@@ -907,6 +907,14 @@ L_12_:NewToggle(
     game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = lynx2pro
     end)
 
+L_12_:NewButton(
+	"AntiChristmas",
+	"Removes Christmas Stuff",
+    function()
+    game:GetService("Workspace").Ignored.WinterMAP:Destroy()
+game:GetService("Workspace").Ignored.SnowBlock:Destroy()
+    end)
+
 local L_11_ = L_4_:NewTab("Other Stuff")
 local L_12_ = L_11_:NewSection("Selection")
 L_12_:NewButton(
