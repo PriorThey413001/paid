@@ -1033,10 +1033,10 @@ L_12_:NewButton(
         end)
 
 L_12_:NewButton(
-	"Trigger Bot (T)",
-	"Shoots when locked on target  ",
-function()
-getgenv().settings = {
+	"Trigger Bot (T / Toggle)",
+	"Shoots when locked on",
+    function()
+   getgenv().settings = {
    TeamCheck = false;
    Delay = 0;
    Keybind = Enum.KeyCode.T;
@@ -1070,6 +1070,8 @@ UserInputService.InputEnded:connect(function(key)
        Holding = false
    end
 end)
+		end)
+
 
 
 L_12_:NewButton(
