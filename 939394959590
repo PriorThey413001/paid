@@ -5,9 +5,17 @@ if game.PlaceId ~= 2788229376 then game.StarterGui:SetCore("SendNotification", {
 })
 wait(3) return end
 
+
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Slap.cc";
+		Text = "Slap.cc, You're whitelisted.";
+		Icon = "rbxthumb://type=Asset&id=5263080138&w=150&h=150";
+	})
+
 game.StarterGui:SetCore("SendNotification", {
     Title = "Slap.cc";
-    Text = "Made By lynx and flash";
+    Text = "Made By lynx,flash,solar";
+    Icon = "rbxthumb://type=Asset&id=5263080138&w=150&h=150";
     Duration = 15;
 })
 wait(3)
@@ -263,7 +271,7 @@ L_6_:NewButton(
 	"Aimlock",
 	"Camlock",
 	function() 
-	    getgenv().AimPart = "HumanoidRootPart"
+	        getgenv().AimPart = "HumanoidRootPart"
 		getgenv().AimlockKey = "q"
 		getgenv().AimRadius = 50
 		getgenv().ThirdPerson = true
@@ -271,8 +279,7 @@ L_6_:NewButton(
 		getgenv().TeamCheck = false
 		getgenv().PredictMovement = true
 		getgenv().PredictionVelocity = 9.5
-		getgenv().AutoPrediction = false
-		getgenv().CheckIfJumped = false
+	
 		local L_27_, L_28_, L_29_, L_30_ =
 			game:GetService "Players",
 		game:GetService "UserInputService",
@@ -447,19 +454,11 @@ L_6_:NewButton(
 	end
 )
 
-L_6_:NewToggle(
-	"AirshotFunction",
-	"Airshot Toggle",
-	function(novagang)
-	  CheckIfJumped = novagang
-	end)
 
-L_6_:NewToggle(
+L_6_:NewButton(
 	"AutoPrediction",
 	"Changes prediction for what ping you're on",
-	function(sneakinup)
-	
-	 AutoPrediction = sneakinup
+	function()
 	if getgenv().AutoPrediction == true then
         wait(5.2)
             local pingvalue = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
@@ -478,11 +477,11 @@ L_6_:NewToggle(
             elseif ping < 110 then
                 getgenv().PredictionVelocity = 6.6
             elseif ping < 105 then
-                getgenv().PredictionVelocity = 7.4
+                getgenv().PredictionVelocity = 7
             elseif ping < 90 then
-                getgenv().PredictionVelocity = 7.4
+                getgenv().PredictionVelocity = 7
             elseif ping < 80 then
-                getgenv().PredictionVelocity = 7.4
+                getgenv().PredictionVelocity = 7
             elseif ping < 70 then
                 getgenv().PredictionVelocity = 9
             elseif ping < 60 then
@@ -1326,6 +1325,9 @@ L_12_:NewButton(
             L_206_.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083218792"
             L_206_.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=707829716"
     end)
+    
+
+   
 
 
  L_12_:NewButton(
