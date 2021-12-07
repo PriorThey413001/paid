@@ -11,7 +11,7 @@
 		Text = "Slap.cc, You're whitelisted.";
 		Icon = "rbxthumb://type=Asset&id=5263080138&w=150&h=150";
 	})
-
+end
 game.StarterGui:SetCore("SendNotification", {
     Title = "Slap.cc";
     Text = "Made By lynx,flash,solar";
